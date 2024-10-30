@@ -2,9 +2,9 @@
   "name": "blast_server",
   "version": "1.0.0",
   "description": "My portfolio website",
-  "main": "code/index.js",
+  "main": "code/script.js",
   "scripts": {
-    "start-code": "node code/index.js",
+    "start-code": "node code/script.js",
     "start-sub-category":"node sub-category/Slider.js"
   },
   "repository": {

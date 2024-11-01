@@ -129,7 +129,7 @@ scrollTop.forEach((el) => observer.observe(el));
 
 // working contact form \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-const form = document.querySelector("form");
+const form = document.querySelector('form');
 const yourName = document.getElementById("name");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");

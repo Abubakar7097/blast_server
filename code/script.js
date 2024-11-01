@@ -145,10 +145,10 @@ function sendEmail() {
 
 
      Email.send({
-        //SecureToken :"e22e8216-a499-4619-a078-0a5a3a224efb",
-        Host : "smtp.elasticemail.com",
-        Username : "abdullahtest8@gmail.com",
-        Password : "4AECEF6C396CC07E8339C97B1D139C8BFB38",
+        SecureToken :"e22e8216-a499-4619-a078-0a5a3a224efb",
+        //Host : "smtp.elasticemail.com",
+        //Username : "abdullahtest8@gmail.com",
+        //Password : "4AECEF6C396CC07E8339C97B1D139C8BFB38",
         To: 'abdullahtest8@gmail.com',
         From: "abdullahtest8@gmail.com",
         Subject: subject.value,

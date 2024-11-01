@@ -763,6 +763,14 @@ border: 2px solid var(--hover-color);
     font-size: 1rem;
 }
 
+.field .error-txt {
+    font-size: 14.5px;
+    color: #d93025;
+    text-align: left;
+    margin: -5px 0 10px;
+    display: none;
+}
+
 /*footer CSs------------------------------*/
 
 footer{

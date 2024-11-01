@@ -411,11 +411,35 @@
       </div>
 
       <form action="#" class="scroll-bottom">
-         <input type="text" placeholder="Your Name" id="name" autocomplete="off" class="item">
-         <input type="text" placeholder="Your Email" id="email" autocomplete="off" class="item">
-         <input type="text" placeholder="Your Address" id="address" autocomplete="off" class="item">
-         <input type="text" placeholder="Phone Number" id="phonenumber" autocomplete="off" class="item">
-         <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+         <div class="item-box">
+            <div class="input-field field">
+               <input type="text" placeholder="Your Name" id="name" autocomplete="off" class="item">
+               <div class="error-txt">Your Name can't be blank</div>
+            </div>
+            <div class="input-field field">
+               <input type="text" placeholder="Your Email" id="email" autocomplete="off" class="item">
+               <div class="error-txt">Your email can't be blank</div>
+            </div>
+         </div>
+
+         <div class="item-box">
+            <div class="input-field field">
+               <input type="text" placeholder="Your Address" id="address" autocomplete="off" class="item">
+               <div class="error-txt">Your Address can't be blank</div>
+            </div>
+            <div class="input-field field">
+               <input type="text" placeholder="Phone Number" id="phone" autocomplete="off" class="item">
+               <div class="error-txt">Your number can't be blank</div>
+            </div>
+         </div>
+
+
+         <div class="text-area field">
+            <textarea name="" cols="30" rows="10" placeholder="Your Message" class="item" id="message"
+               autocomplete="off"></textarea>
+            <div class="error-txt">Your Message can't be blank</div>
+         </div>
+
          <div class="btn-box formBtn">
             <button type="submit" class="btn">Send Message</button>
          </div>

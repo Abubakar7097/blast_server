@@ -775,7 +775,7 @@ border: 2px solid var(--hover-color);
     border-color: #d93025;
 }
 
-.field.error .error-text{
+.contant .field.error .error-text{
     display: block;
 }
 

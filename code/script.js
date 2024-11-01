@@ -164,29 +164,29 @@ function sendEmail() {
 }
 
 function checkInputs() {
-    const contant = document.querySelectorAll(".contant");
-    for (const item of contant) {
-        if (item.value == "") {
-            item.classList.add("error");
-            item.parentElement.classList.add("error");
+    const items = document.querySelectorAll(".contant");
+    for (const contant of items) {
+        if (contant.value == "") {
+            contant.classList.add("error");
+            contant.parentElement.classList.add("error");
         }
 
-        if (contant[1].value != "") {
+        if (items[1].value != "") {
                 checkEmail();
             }
 
-            contant[1].addEventListener("keyup", () => {
+            items[1].addEventListener("keyup", () => {
                 checkEmail();
         });
 
         item.addEventListener("keyup", () => {
-            if (item.value != "") {
-                item.classList.remove("error");
-                item.parentElement.classList.remove("error");
+            if (contant.value != "") {
+                contant.classList.remove("error");
+                contant.parentElement.classList.remove("error");
             }
             else {
-                item.classList.add("error");
-                item.parentElement.classList.add("error");
+                contant.classList.add("error");
+                contant.parentElement.classList.add("error");
             }
         });
     }

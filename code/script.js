@@ -131,7 +131,7 @@ scrollTop.forEach((el) => observer.observe(el));
 
 const form = document.querySelector("form");
 const YourName = document.getElementById("name");
-const Email = document.getElementById("email");
+const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 
 const subject = document.getElementById("subject");
@@ -139,12 +139,12 @@ const mess = document.getElementById("message");
 
 function sendEmail() {
 
-    const bodyMessage = `Your Name: ${YourName.value}<br> Email: ${Email.
+    const bodyMessage = `Your Name: ${YourName.value}<br> email: ${email.
         value}<br> Phone Number: ${phone.value}<br> Your Message: ${mess.value}`;
 
 
 
-    Email.send({
+     Email.send({
         //SecureToken :"e22e8216-a499-4619-a078-0a5a3a224efb",
         Host : "smtp.elasticemail.com",
         Username : "abdullahtest8@gmail.com",
@@ -196,24 +196,24 @@ function checkInputs() {
 }
 
 function checkEmail() {
-    const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,3})(\.[a-z]{2, 3})?$/;
+    const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
     const errorTxtEmail = document.querySelector(".error-txt.email");
 
 
-    if (!YourEmail.value.match(emailRegex)) {
-        YourEmail.classList.add("error");
-        YourEmail.parentElement.classList.add("error");
+    if (!email.value.match(emailRegex)) {
+        email.classList.add("error");
+        email.parentElement.classList.add("error");
 
-        if(YourEmail.value != ""){
+        if(email.value != ""){
             errorTxtEmail.innerText = "Enter a Valid Email address";
         }
         else{
-            errorTxtEmail.innerText = "Enter a valid Email address";
+            errorTxtEmail.innerText = "Your Email address can't be blank";
         }
     }
     else {
-        YourEmail.classList.remove("error");
-        YourEmail.parentElement.classList.remove("error");
+        email.classList.remove("error");
+        email.parentElement.classList.remove("error");
     }
 }
 
@@ -221,9 +221,8 @@ function checkEmail() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         checkInputs();
-        if (!YourName.classList.contains("error") && !Email.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !mess.classList.contains("error")) 
+        if (!YourName.classList.contains("error") && !email.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !mess.classList.contains("error")) 
             {
-            console.log("OK");
 
             sendEmail();
 

@@ -737,28 +737,45 @@ border: 2px solid var(--hover-color);
     margin-bottom: 3rem;
 }
 
-.contant form input,
-.contant form textarea{
+form .input-box{
+    display:flex;
+    justify-content: space-between;
+}
+
+.field .item{
     width: 100%;
     color: var(--text-color);
     background: var(--bg-color);
     margin-bottom: .8rem;
-    border: none;
+    border: 2px solid #0ef;
+    outline: none;
     border-radius: 5px;
     padding: .7rem;
 }
 
-.contant form textarea{
+ form .textarea-field .item{
     resize: none;
 }
 
-.formBtn{
+.field .item::placeholder{
+    color: rgba(255,255,255,.3);
+}
+
+.input-box .input-field{
+    width: 48.5%;
+}
+
+form .textarea-field .error-txt{
+    margin-top: -10px;
+}
+
+ form .formBtn{
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-.formBtn .btn{
+ form .formBtn .btn{
     cursor: pointer;
     font-size: 1rem;
 }
@@ -771,11 +788,11 @@ border: 2px solid var(--hover-color);
     display: none;
 }
 
-.contant .field.error .item{
+ .field.error .item{
     border-color: #d93025;
 }
 
-.contant .field.error .error-text{
+ .field.error .error-txt{
     display: block;
 }
 

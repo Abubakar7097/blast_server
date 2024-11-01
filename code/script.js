@@ -145,10 +145,7 @@ function sendEmail() {
 
 
     Email.send({
-        //SecureToken :"e22e8216-a499-4619-a078-0a5a3a224efb",
-        Host : "smtp.elasticemail.com",
-        Username : "abdullahtest8@gmail.com",
-        Password : "4AECEF6C396CC07E8339C97B1D139C8BFB38",
+        SecureToken :"e22e8216-a499-4619-a078-0a5a3a224efb",
         To: 'abdullahtest8@gmail.com',
         From: "abdullahtest8@gmail.com",
         Subject: subject.value,
@@ -167,11 +164,11 @@ function sendEmail() {
 }
 
 function checkInputs() {
-    const items = document.querySelectorAll(".contant");
-    for (const contant of items) {
-        if (contant.value == "") {
-            contant.classList.add("error");
-            contant.parentElement.classList.add("error");
+    const items = document.querySelectorAll(".item");
+    for (const item of items) {
+        if (item.value == "") {
+            item.classList.add("error");
+            item.parentElement.classList.add("error");
         }
 
         if (items[1].value != "") {
@@ -183,13 +180,13 @@ function checkInputs() {
         });
 
         item.addEventListener("keyup", () => {
-            if (contant.value != "") {
-                contant.classList.remove("error");
-                contant.parentElement.classList.remove("error");
+            if (item.value != "") {
+                item.classList.remove("error");
+                item.parentElement.classList.remove("error");
             }
             else {
-                contant.classList.add("error");
-                contant.parentElement.classList.add("error");
+                item.classList.add("error");
+                item.parentElement.classList.add("error");
             }
         });
     }
@@ -200,20 +197,20 @@ function checkEmail() {
     const errorTxtEmail = document.querySelector(".error-txt.email");
 
 
-    if (!email.value.match(emailRegex)) {
-        email.classList.add("error");
-        email.parentElement.classList.add("error");
+    if (!YourEmail.value.match(emailRegex)) {
+        YourEmail.classList.add("error");
+        YourEmail.parentElement.classList.add("error");
 
-        if(email.value != ""){
+        if(YourEmail.value != ""){
             errorTxtEmail.innerText = "Enter a Valid Email address";
         }
         else{
-            errorTxtEmail.innerText = "Email address can't be blank";
+            errorTxtEmail.innerText = "Enter a valid Email address";
         }
     }
     else {
-        email.classList.remove("error");
-        email.parentElement.classList.remove("error");
+        YourEmail.classList.remove("error");
+        YourEmail.parentElement.classList.remove("error");
     }
 }
 
@@ -221,7 +218,7 @@ function checkEmail() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         checkInputs();
-        if (!yourName.classList.contains("error") && !email.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !mess.classList.contains("error")) {
+        if (!YourName.classList.contains("error") && !YourEmail.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !mess.classList.contains("error")) {
             console.log("OK");
 
             sendEmail();

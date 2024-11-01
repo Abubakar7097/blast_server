@@ -771,6 +771,14 @@ border: 2px solid var(--hover-color);
     display: none;
 }
 
+.field.error .item{
+    border-color: #d93025;
+}
+
+.field.error .error-text{
+    display: block;
+}
+
 /*footer CSs------------------------------*/
 
 footer{

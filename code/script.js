@@ -39,10 +39,10 @@ setInterval(changeText, 3000)
 // circle skill/////////
 
 const circles = document.querySelectorAll('.circle');
-circles.forEach(elem=>{
+circles.forEach(elem => {
     var dots = elem.getAttribute("data-dots");
     var marked = elem.getAttribute("data-percent");
-    var percent = Math.floor(dots*marked/100);
+    var percent = Math.floor(dots * marked / 100);
     var points = "";
     var rotate = 360 / dots;
 
@@ -52,7 +52,7 @@ circles.forEach(elem=>{
     elem.innerHTML = points;
 
     const pointsMarked = elem.querySelectorAll('.points');
-    for (let i = 0; i<percent; i++) {
+    for (let i = 0; i < percent; i++) {
         pointsMarked[i].classList.add('marked')
     }
 })
@@ -71,59 +71,162 @@ var mixer = mixitup('.portfolio-gallery');
 let menuLi = document.querySelectorAll('header ul li a');
 let section = document.querySelectorAll('section');
 
-function activeMenu(){
+function activeMenu() {
     let len = section.length;
-    while(--len && window.scrollY + 97 < section[len].offsetTop){}
+    while (--len && window.scrollY + 97 < section[len].offsetTop) { }
     menuLi.forEach(sec => sec.classList.remove("active"));
     menuLi[len].classList.add("active");
 }
 
 activeMenu();
-window.addEventListener("scroll",activeMenu);
+window.addEventListener("scroll", activeMenu);
 
 
 
 // sticky Navbar/////////
 
 const header = document.querySelector("header");
-window.addEventListener("scroll", function()
-{
-    header.classList.toggle("sticky",this.window.scrollY > 50)
+window.addEventListener("scroll", function () {
+    header.classList.toggle("sticky", this.window.scrollY > 50)
 })
 
 // toggle icon Navbar/////////
 let menuIcon = document.querySelector("#menu-icon");
 let navlist = document.querySelector(".navlist");
 
-menuIcon.onclick = ()=>{
+menuIcon.onclick = () => {
     menuIcon.classList.toggle("bx-x");
     navlist.classList.toggle("open");
 }
 
 
-window.onscroll = ()=>{
+window.onscroll = () => {
     menuIcon.classList.remove("bx-x");
     navlist.classList.remove("open");
 }
 
 // parallax//////////////////////////////////////////////////
 
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-        if(entry.isIntersecting){
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
             entry.target.classList.add("show-items");
-        }else{
+        } else {
             entry.target.classList.remove("show-items");
         }
     });
 });
 
 const scrollScale = document.querySelectorAll(".scroll-scale");
-scrollScale.forEach((el)=>observer.observe(el));
+scrollScale.forEach((el) => observer.observe(el));
 
 
 const scrollBottom = document.querySelectorAll(".scroll-bottom");
-scrollBottom.forEach((el)=>observer.observe(el));
+scrollBottom.forEach((el) => observer.observe(el));
 
 const scrollTop = document.querySelectorAll(".scroll-top");
-scrollTop.forEach((el)=>observer.observe(el));
+scrollTop.forEach((el) => observer.observe(el));
+
+// working contact form \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+const form = document.querySelector("form");
+const yourName = document.getElementById("name");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+
+const subject = document.getElementById("subject");
+const mess = document.getElementById("message");
+
+function sendEmail() {
+
+    const bodyMessage = `yourName: ${yourName.value}<br> Email: ${email.
+        value}<br> Phone Number: ${phone.value}<br> Message: ${mess.value}`;
+
+
+
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "abdullahtest8@gmail.com",
+        Password: "",
+        To: 'abdullahtest8@gmail.com',
+        From: "abdullahtest8@gmail.com",
+        Subject: subject.value,
+        Body: bodyMessage
+    }).then(
+        message => {
+            if (message == "OK") {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Message sent successfully!",
+                    icon: "success"
+                });
+            }
+        }
+    );
+}
+
+function checkInputs() {
+    const items = document.querySelectorAll(".item");
+    for (const item of items) {
+        if (item.value == "") {
+            item.classList.add("error");
+            item.parentElement.classList.add("error");
+        }
+
+        if (items[1].value != "") {
+                checkEmail();
+            }
+
+            items[1].addEventListener("keyup", () => {
+                checkEmail();
+        });
+
+        item.addEventListener("keyup", () => {
+            if (item.value != "") {
+                item.classList.remove("error");
+                item.parentElement.classList.remove("error");
+            }
+            else {
+                item.classList.add("error");
+                item.parentElement.classList.add("error");
+            }
+        });
+    }
+}
+
+function checkEmail() {
+    const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,3})(\.[a-z]{2, 3})?$/;
+    const errorTxtEmail = document.querySelector(".error-txt.email");
+
+
+    if (!email.value.match(emailRegex)) {
+        email.classList.add("error");
+        email.parentElement.classList.add("error");
+
+        if(email.value != ""){
+            errorTxtEmail.innerText = "Enter a Valid Email address";
+        }
+        else{
+            errorTxtEmail.innerText = "Email address can't be blank";
+        }
+    }
+    else {
+        email.classList.remove("error");
+        email.parentElement.classList.remove("error");
+    }
+}
+
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        checkInputs();
+        if (!yourName.classList.contains("error") && !email.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !mess.classList.contains("error")) {
+            console.log("OK");
+
+            sendEmail();
+
+            form.reset();
+            return false;
+        }
+
+    });

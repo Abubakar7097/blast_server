@@ -771,7 +771,7 @@ border: 2px solid var(--hover-color);
     display: none;
 }
 
-.field.error .item{
+.contant .field.error .item{
     border-color: #d93025;
 }
 

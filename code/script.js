@@ -164,18 +164,18 @@ function sendEmail() {
 }
 
 function checkInputs() {
-    const items = document.querySelectorAll(".item");
-    for (const item of items) {
+    const contant = document.querySelectorAll(".contant");
+    for (const item of contant) {
         if (item.value == "") {
             item.classList.add("error");
             item.parentElement.classList.add("error");
         }
 
-        if (items[1].value != "") {
+        if (contant[1].value != "") {
                 checkEmail();
             }
 
-            items[1].addEventListener("keyup", () => {
+            contant[1].addEventListener("keyup", () => {
                 checkEmail();
         });
 

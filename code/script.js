@@ -129,9 +129,9 @@ scrollTop.forEach((el) => observer.observe(el));
 
 // working contact form \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-const form = document.querySelector('form');
-const yourName = document.getElementById("name");
-const email = document.getElementById("email");
+const form = document.querySelector("form");
+const YourName = document.getElementById("name");
+const YourEmail = document.getElementById("email");
 const phone = document.getElementById("phone");
 
 const subject = document.getElementById("subject");
@@ -139,13 +139,16 @@ const mess = document.getElementById("message");
 
 function sendEmail() {
 
-    const bodyMessage = `yourName: ${yourName.value}<br> Email: ${email.
-        value}<br> Phone Number: ${phone.value}<br> Message: ${mess.value}`;
+    const bodyMessage = `Your Name: ${YourName.value}<br> Your Email: ${YourEmail.
+        value}<br> Phone Number: ${phone.value}<br> Your Message: ${mess.value}`;
 
 
 
     Email.send({
-        SecureToken :"e22e8216-a499-4619-a078-0a5a3a224efb",
+        //SecureToken :"e22e8216-a499-4619-a078-0a5a3a224efb",
+        Host : "smtp.elasticemail.com",
+        Username : "abdullahtest8@gmail.com",
+        Password : "4AECEF6C396CC07E8339C97B1D139C8BFB38",
         To: 'abdullahtest8@gmail.com',
         From: "abdullahtest8@gmail.com",
         Subject: subject.value,

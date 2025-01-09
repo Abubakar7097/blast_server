@@ -1034,16 +1034,22 @@ footer a i{
         font: size .8rem; ;
     }
     .img-about{
-        max-width: 100%;
         height: auto;
-        width: 300px;
+       max-width: 500px;
     }
     .info-about1,.info-about2,.info-about3{
     display: none;
-    }
+    } 
 
     .img-about p{
         font-size: 1rem;
+    }
+
+
+    .liquid-shape {
+        width: 150%; /* Adjust width */
+        left: 20%;
+        top: 100%; /* Adjust based on design */
     }
 
 }

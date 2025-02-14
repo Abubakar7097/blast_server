@@ -793,14 +793,14 @@ footer a i{
   }
 }
 
-@media (max-width: 400px) {
+@media (min-width: 300px) {
  .navbar{
-  padding: 10px 35px;
+  padding: 4px 14px;
  }
 
  .navbar-toggle{
-  right: 34px;
-  top: 10px; 
+  right: 18px;
+  top: 9px; 
  }
 }
 
